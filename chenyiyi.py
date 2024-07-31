@@ -4,8 +4,7 @@ import io
 import numpy as np
 import matplotlib.pyplot as plt
 st.set_page_config(page_title="陈奕羿Chenyiyi", page_icon="https://static.codemao.cn/coco/player/unstable/BJJhqIDKA.image/png?hash=FvDjodFEBdUGs31c5YMPVE30iT_h", layout="wide", initial_sidebar_state="auto", menu_items=None)
-# 设置页面为宽屏模式
-st.set_page_config(layout="wide")
+
 # 辅助函数
 def img_change(img, rc, bc, gc):
     width, height = img.size
