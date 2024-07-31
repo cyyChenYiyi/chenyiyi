@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image, ImageEnhance, ImageFilter
-import io
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -26,11 +25,7 @@ def adjust_brightness(image, brightness):
     adjusted_image = enhancer.enhance(factor)
     return adjusted_image
 
-def img_to_bytes(image):
-    img_byte_arr = io.BytesIO()
-    image.save(img_byte_arr, format='PNG')
-    img_byte_arr.seek(0)
-    return img_byte_arr.getvalue()
+
 
 
 def apply_filter(img, filter_type):
@@ -139,9 +134,7 @@ with st.container():
             with tab_filter_modified:
                 st.image(filtered_img, caption="滤镜后的图片")
             
-            # 保存处理后图片以便下载
-            filtered_img_bytes = img_to_bytes(filtered_img)
-            st.download_button("下载处理后的图片", filtered_img_bytes, f"{filter_type}_image.png")
+
         
         # 图片换色功能
         st.markdown('#### 图片换色')
@@ -163,14 +156,12 @@ with st.container():
             img = Image.open(uploaded_file)
             with tab1:
                 st.image(img, caption="原始图片")
-                original_img_bytes = img_to_bytes(img)  # 保存原始图片以便下载
-                st.download_button("下载原始图片", original_img_bytes, "original_image.png")
+
                 
             modified_img = img_change(img.copy(), a, b, c)
             with tab2:
                 st.image(modified_img, caption="修改后的图片")
-                modified_img_bytes = img_to_bytes(modified_img)  # 保存修改后图片以便下载
-                st.download_button("下载修改后图片", modified_img_bytes, "modified_image.png")
+
         else:
             st.warning("请上传图片以使用工具。")
         
@@ -186,19 +177,17 @@ with st.container():
             img_gray = Image.open(grayscale_file).convert('L')
             with tab3:
                 st.image(img_gray, caption="原始图片")
-                original_gray_img_bytes = img_to_bytes(img_gray)  # 保存原始灰度图片以便下载
-                st.download_button("下载原始灰度图", original_gray_img_bytes, "original_gray_image.png")
+
             
             with tab4:
                 if brightness != 50:
                     adjusted_img_gray = adjust_brightness(img_gray, brightness)
                     st.image(adjusted_img_gray, caption="灰度图")
-                    adjusted_gray_img_bytes = img_to_bytes(adjusted_img_gray)  # 保存调整后灰度图以便下载
-                    st.download_button("下载调整后的灰度图", adjusted_gray_img_bytes, "adjusted_gray_image.png")
+
                 else:
                     st.image(img_gray, caption="灰度图")
-                    original_gray_img_bytes = img_to_bytes(img_gray)  # 保存原始灰度图以便下载
-                    st.download_button("下载灰度图", original_gray_img_bytes, "gray_image.png")
+
+
         else:
             st.warning("请上传图片进行灰度图转换。")
         
@@ -243,13 +232,11 @@ with st.container():
             
             with tab5:
                 st.image(base_image, caption="原始主图")
-                original_watermark_img_bytes = img_to_bytes(base_image)  # 保存原始主图以便下载
-                st.download_button("下载原始主图", original_watermark_img_bytes, "original_base_image.png")
+
             
             with tab6:
                 st.image(base_image, caption="添加水印后的图片")
-                watermarked_img_bytes = img_to_bytes(base_image)  # 保存带水印后的图以便下载
-                st.download_button("下载带水印的图片", watermarked_img_bytes, "watermarked_image.png")
+
         else:
             st.warning("请上传主图和水印图。")
 
