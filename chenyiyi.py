@@ -83,7 +83,7 @@ with st.container():
         st.subheader("兴趣推荐")
         st.markdown('开始阅读之前，不妨先听听**我最喜欢的歌曲**吧~')
         # 打开音频文件
-        audio_file = open('D:\home\我的网络根据地\Chenyiyi_music.mp3', 'rb')
+        audio_file = open('Chenyiyi_music.mp3', 'rb')
         audio_bytes = audio_file.read()
 
         # 使用st.audio函数播放音频
@@ -102,7 +102,7 @@ with st.container():
             st.markdown('1、一键给教室电脑上锁，防止学生课间偷玩电脑')
             st.markdown('2、教师只需拿出手机扫码即可关闭锁机')
             st.markdown('3、显示距离上课时间等小功能')
-            st.image("D:\home\我的网络根据地\Chenyiyi_image1.png")
+            st.image("Chenyiyi_image1.png")
             st.markdown("#### blog")
             st.markdown('[****跳转至项目github主页****](https://github.com/cyyChenYiyi/cyychenyiyi.github.io "项目github主页")')
             st.markdown('基于开源项目Gmeek，实现了blog')
@@ -111,7 +111,7 @@ with st.container():
             st.markdown('### 总述')
             st.markdown('我热爱阅读文学作品，比较喜欢小说、散文')
             st.markdown('当然也很喜欢科幻文学作品，特别推荐《三体》《流浪地球》')
-            st.image("D:\home\我的网络根据地\Chenyiyi_image2.jpg")
+            st.image("Chenyiyi_image2.jpg")
             st.markdown('书籍是人类进步的阶梯，希望你也能阅读起来！')
 
 # 第二个大板块：工具和留言
@@ -292,8 +292,8 @@ with st.container():
                     f.write(f"{k}#{v}\n")  
         
 
-        words_dict = read_words_dict('D:\\home\\我的网络根据地\\words_space.txt')  
-        times_dict = read_check_out_times('D:\\home\\我的网络根据地\\check_out_times.txt')  
+        words_dict = read_words_dict('words_space.txt')  
+        times_dict = read_check_out_times('check_out_times.txt')  
         
         st.subheader('智慧学英语')  
         word = st.text_input('请输入您想查询的单词')  
@@ -316,7 +316,7 @@ with st.container():
                     times_dict[word_id] = 1  
                 
                 # 保存到文件  
-                update_check_out_times('D:\\home\\我的网络根据地\\check_out_times.txt', times_dict)  
+                update_check_out_times('check_out_times.txt', times_dict)  
                 
                 # 显示信息  
                 st.markdown("##### 解释")  
@@ -331,7 +331,7 @@ with st.container():
 
         # 尝试从文件中加载内容，并检查格式
         try:
-            with open('d:\\home\\我的网络根据地\\leave_messages.txt', 'r', encoding='utf-8') as f:
+            with open('leave_messages.txt', 'r', encoding='utf-8') as f:
                 messages_list = f.read().split('\n')
             # 确保每个msg非空且格式正确
             messages_list = [msg.split('#') for msg in messages_list if msg and len(msg.split('#')) == 4]
@@ -360,7 +360,7 @@ with st.container():
             # 尝试写入文件
             try:
                 message = '\n'.join('#'.join(map(str, m)) for m in messages_list).strip()
-                with open('d:\\home\\我的网络根据地\\leave_messages.txt', 'w', encoding='utf-8') as f:
+                with open('leave_messages.txt', 'w', encoding='utf-8') as f:
                     f.write(message)
             except Exception as e:
                 st.error(f"写入文件时出错：{e}")
