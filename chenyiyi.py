@@ -105,7 +105,7 @@ with st.container():
             st.markdown("#### blog")
             st.markdown('[****跳转至项目github主页****](https://github.com/cyyChenYiyi/cyychenyiyi.github.io "项目github主页")')
             st.markdown('基于开源项目Gmeek，实现了blog')
-            st.markdown('[****跳转至Blog****](cyychenyiyi.github.io "Blog")')
+            st.markdown('[****跳转至Blog****](https://cyychenyiyi.github.io "Blog")')
             st.markdown('> 剩余部分老旧项目暂不展示')
             
         with tabb:
