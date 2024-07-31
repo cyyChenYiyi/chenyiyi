@@ -1,5 +1,5 @@
 streamlit
 pillow
 numpy
-pyplot
+matplotlib
 io
