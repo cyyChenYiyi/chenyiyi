@@ -105,12 +105,9 @@ with st.container():
             st.markdown("#### blog")
             st.markdown('[****跳转至项目github主页****](https://github.com/cyyChenYiyi/cyychenyiyi.github.io "项目github主页")')
             st.markdown('基于开源项目Gmeek，实现了blog')
+            st.markdown('[****跳转至Blog****](cyychenyiyi.github.io "Blog")')
             st.markdown('> 剩余部分老旧项目暂不展示')
-            # 添加跳转到Blog的按钮
-            blog_url = "https://cyychenyiyi.github.io"
-            if st.button("跳转到Blog"):
-                js = f"window.open('{blog_url}')"  # JavaScript for opening a new window
-                st.markdown(f'<img src onerror="{js}">', unsafe_allow_html=True)
+            
         with tabb:
             st.markdown('### 总述')
             st.markdown('我热爱阅读文学作品，比较喜欢小说、散文')
