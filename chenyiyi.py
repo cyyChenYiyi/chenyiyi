@@ -31,7 +31,6 @@ def img_to_bytes(image):
     img_byte_arr.seek(0)
     return img_byte_arr.getvalue()
 
-
 def apply_filter(img, filter_type):
     if filter_type == '模糊':
         return img.filter(ImageFilter.BLUR)
@@ -306,7 +305,7 @@ with st.container():
                 st.snow()  
             elif word == "python":  
                 st.code('print("hello, world")')  
-                st.write("恭喜你触发彩蛋，这是一行python代码")  
+                st.write("恭喜你触发彩蛋，这是一行python代码，python n.蛇")  
             elif word in words_dict:  
                 # 获取单词编号  
                 word_id = words_dict[word][0]  
@@ -326,6 +325,11 @@ with st.container():
                 st.write(f"**{times_dict[word_id]}**")  
             else:  
                 st.write("该单词不在词典中。")
+        st.subheader('影视解析')
+        st.write("请输入影视链接：")
+        movie_link = st.text_input("影视链接")
+        if st.button("解析"):
+            st.video("https://jx.xmflv.com/?url="+ movie_link)
     
     with col3:
         st.subheader('我的留言区')
