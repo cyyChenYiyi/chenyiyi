@@ -329,6 +329,8 @@ with st.container():
         st.subheader('影视解析')
         st.write("请输入影视链接：")
         movie_link = st.text_input("影视链接")
+        st.markdown("""本功能API接口来源于**网络**，仅供学习交流使用，本网站不负任何责任
+        点击“解析”即代表您同意《第三方接口服务协议》，影片中包含广告，请您**谨慎**识别。""")
         if st.button("解析"):
             video_url = "https://jx.xmflv.com/?url=" + movie_link
             components.iframe(video_url, width=700, height=400)
