@@ -334,6 +334,9 @@ with st.container():
         if st.button("解析"):
             video_url = "https://jx.xmflv.com/?url=" + movie_link
             components.iframe(video_url, width=700, height=400)
+        st.subheader('AI-GPT')
+        if st.button("开始对话"):
+            components.iframe("https://chatbot-chenyiyicyy.streamlit.app/", width=700, height=400)
     
     with col3:
         st.subheader('我的留言区')
