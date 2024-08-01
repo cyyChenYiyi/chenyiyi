@@ -3,6 +3,7 @@ from PIL import Image, ImageEnhance, ImageFilter
 import io
 import numpy as np
 import matplotlib.pyplot as plt
+import streamlit.components.v1 as components
 st.set_page_config(page_title="陈奕羿Chenyiyi", page_icon="https://static.codemao.cn/coco/player/unstable/ryB93wJY0.image/png?hash=Fv21fonr92VybYwCRBeXhZPyZJs9", layout="wide", initial_sidebar_state="auto", menu_items=None)
 
 # 辅助函数
@@ -329,7 +330,8 @@ with st.container():
         st.write("请输入影视链接：")
         movie_link = st.text_input("影视链接")
         if st.button("解析"):
-            st.video("https://jx.xmflv.com/?url="+ movie_link)
+            video_url = "https://jx.xmflv.com/?url=" + movie_link
+            components.iframe(video_url, width=700, height=400)
     
     with col3:
         st.subheader('我的留言区')
