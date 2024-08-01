@@ -75,6 +75,7 @@ with st.container():
         st.markdown("### 个人简介")
         st.markdown("我热爱编程，喜欢阅读科幻小说，喜欢科幻电影")
         st.markdown("### 关于这个网站")
+        st.video("宣传片.mp4")
         st.markdown("这个网站是我用streamlit框架搭建的，目前还在完善中")
         st.markdown("目前实现的功能有：1、展示个人简介 2、展示个人兴趣 3、展示个人项目4、智慧词典5、数学函数图像绘制6、图片处理7、音乐播放")
         
